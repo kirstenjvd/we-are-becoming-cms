@@ -1,10 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
-import beLogo from "../images/Union 2.svg"
+import beLogoAlt from "../images/be-logo-alt.svg"
 
 const bp = {
   smaller: 300,
@@ -56,25 +54,6 @@ const Be = styled.img`
     max-width: 152.13px;
   }
 `
-const Insta = styled.a`
-  max-width: 28px;
-  color: white;
-  position: absolute;
-  font-size: 38px;
-  right: 24px;
-  top: 60px;
-  left: auto;
-  bottom: auto;
-  z-index: 4;
-  ${mq('large')} {
-    position: fixed;
-    top: auto;
-    right: auto;
-    left: 150px;
-    bottom: 66px;
-  }
-`
-
 const showDrop = () => {
   document.getElementById("drop").classList.toggle("open");
   document.getElementById("burger").classList.toggle("open");
@@ -98,9 +77,14 @@ const HamburgerStyle = styled.div`
     right: 108px;
     top: 115px;
   }
+  &.open {
+    div {
+      background-color: #ffffff;
+    }
+  }
   div {
     position: absolute;
-    background-color: #fff;
+    background-color: #FF5959;
   }
   div:first-child {
     width: 38px;
@@ -110,15 +94,14 @@ const HamburgerStyle = styled.div`
   div:nth-child(2) {
     width: 38px;
     height: 3px;
-    top: 12px;
+    top: 14px;
   }
   div:last-child {
     width: 38px;
     height: 3px;
-    top: 24px;
+    top: 28px;
   }
 `
-
 const Menu = styled.div `
   position: fixed;
   top: 0;
@@ -153,7 +136,7 @@ const Menu = styled.div `
   }
 `
 
-class Header extends React.Component {
+class HeaderAlt extends React.Component {
 
   constructor(props) {
     super(props);
@@ -183,17 +166,14 @@ class Header extends React.Component {
       <HeaderMain>
         <Wrapper>
           <Link to="/">
-            <Be src={beLogo} alt="be/" />
+            <Be src={beLogoAlt} alt="be/" />
           </Link>
-          <Insta className={this.state.isTop ? 'down' : 'up'} rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/becomingdesignoffice/">
-            <FontAwesomeIcon icon={faInstagram} />
-          </Insta>
 
           <Hamburger/>
           <Menu id="drop">{/*whole drop down*/}
             <div>
-              <div><Link onClick={showDrop} to="/">Home</Link></div>
-              <div><Link onClick={showDrop} to="/services/">Services</Link></div>
+              <div><Link to="/">Home</Link></div>
+              <div><Link to="/services/" >Services</Link></div>
               <div><a onClick={showDrop} href="#footer">Contact Us</a></div>
             </div>
           </Menu>
@@ -205,4 +185,4 @@ class Header extends React.Component {
 }
 
 
-export default Header
+export default HeaderAlt

@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "sanity-gatsby-portfolio-web",
+  "name": "becoming-web",
   "version": "1.0.1",
-  "author": "Sanity <hello@sanity.io>",
+  "author": "Hey Nova <info@heynova.io>",
   "scripts": {
     "build": "gatsby build",
     "clean-cache": "gatsby clean",
@@ -12,17 +12,37 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-brands-svg-icons": "^5.13.0",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/image-url": "^0.140.18",
+    "@u-wave/react-vimeo": "^0.7.0",
     "date-fns": "^1.30.1",
-    "gatsby": "^2.9.11",
-    "gatsby-image": "^2.0.41",
+    "gatsby": "^2.20.36",
+    "gatsby-image": "^2.3.2",
+    "gatsby-plugin-emotion": "^4.2.1",
+    "gatsby-plugin-manifest": "^2.3.3",
+    "gatsby-plugin-offline": "^2.2.10",
     "gatsby-plugin-postcss": "^2.0.7",
-    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-react-helmet": "^3.2.2",
+    "gatsby-plugin-sharp": "^2.5.4",
+    "gatsby-source-filesystem": "^2.2.2",
+    "gatsby-source-instagram": "^0.5.1",
     "gatsby-source-sanity": "^4.0.1",
+    "gatsby-transformer-remark": "^2.7.1",
+    "gatsby-transformer-sharp": "^2.4.4",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-mailchimp-form": "^1.0.2",
+    "react-scroll-trigger": "^0.6.2",
+    "react-typist": "^2.0.5",
+    "react-typist-loop": "0.0.5"
   },
   "devDependencies": {
     "dotenv": "^8.0.0",
@@ -37,6 +57,7 @@
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.6.0",
     "prettier-eslint-cli": "^4.7.1",
+    "react-alice-carousel": "^1.18.0",
     "rimraf": "^2.6.3"
   }
 }

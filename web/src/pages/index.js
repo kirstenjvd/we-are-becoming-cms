@@ -1,15 +1,25 @@
 import React from 'react'
 import {graphql} from 'gatsby'
+import {Link} from 'gatsby'
+
 import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
+
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+
+import Header from "../components/header"
+import AboveFold from "../components/aboveFold"
+import Mission from "../components/mission"
+import SocialContainer from "../components/socialContainer"
+import Services from "../components/services"
+import Testimonials from "../components/testimonials"
 
 export const query = graphql`
   query IndexPageQuery {
@@ -18,7 +28,7 @@ export const query = graphql`
       description
       keywords
     }
-    projects: allSanitySampleProject(
+    services: allSanityServices(
       limit: 6
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
@@ -26,32 +36,27 @@ export const query = graphql`
       edges {
         node {
           id
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
           title
-          _rawExcerpt
           slug {
             current
+          }
+        }
+      }
+    }
+    allInstaNode(filter: { username: { eq: "becomingdesignoffice" } }) {
+      edges {
+        node {
+          id
+          username
+          likes
+          caption
+          comments
+          localFile {
+            childImageSharp {
+              fluid(quality: 70, maxWidth: 600, maxHeight: 600) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
           }
         }
       }
@@ -60,7 +65,7 @@ export const query = graphql`
 `
 
 const IndexPage = props => {
-  const {data, errors} = props
+  const {data, errors, siteTitle} = props
 
   if (errors) {
     return (
@@ -69,10 +74,10 @@ const IndexPage = props => {
       </Layout>
     )
   }
-
+  const allInstaNode = (data || {}).allInstaNode
   const site = (data || {}).site
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
+  const servicesNodes = (data || {}).services
+    ? mapEdgesToNodes(data.services)
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []
@@ -86,16 +91,21 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title='Latest projects'
-            nodes={projectNodes}
-            browseMoreHref='/archive/'
-          />
-        )}
-      </Container>
+      <Header />
+      <AboveFold />
+      <Mission />
+      <SocialContainer nodes={allInstaNode} />
+      <Services />
+      <Testimonials />
+      {servicesNodes &&
+        servicesNodes.map(node => (
+          <span key={node.id}>
+            <Link to={`/services/${node.slug.current}`}>
+              {node.title}
+            </Link>
+          </span>
+        ))
+      }
     </Layout>
   )
 }

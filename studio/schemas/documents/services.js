@@ -1,8 +1,8 @@
 import {format} from 'date-fns'
 
 export default {
-  name: 'sampleProject',
-  title: 'Sample project',
+  name: 'services',
+  title: 'Service List',
   type: 'document',
   fields: [
     {
@@ -27,25 +27,18 @@ export default {
       type: 'datetime'
     },
     {
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'simplePortableText'
+      name: 'body',
+      title: 'Body',
+      type: 'projectPortableText'
     },
     {
-      name: 'members',
-      title: 'Members',
+      name: 'categories',
+      title: 'Categories',
       type: 'array',
-      of: [{type: 'projectMember'}]
-    },
-    {
-      name: 'startedAt',
-      title: 'Started at',
-      type: 'datetime'
-    },
-    {
-      name: 'endedAt',
-      title: 'Ended at',
-      type: 'datetime'
+      of: [{type: 'string'}],
+      options: {
+        layout: 'tags'
+      }
     },
     {
       name: 'mainImage',
@@ -53,21 +46,29 @@ export default {
       type: 'figure'
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
+      name: 'mainImage2',
+      title: 'Main image 2',
+      type: 'figure'
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'projectPortableText'
+      name: 'mainImage3',
+      title: 'Main image 3',
+      type: 'figure'
     },
     {
-      name: 'relatedProjects',
-      title: 'Related projects',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'sampleProject'}}]
+      name: 'mainImage4',
+      title: 'Main image 4',
+      type: 'figure'
+    },
+    {
+      name: 'mainImage5',
+      title: 'Main image 5',
+      type: 'figure'
+    },
+    {
+      name: 'mainImage6',
+      title: 'Main image 6',
+      type: 'figure'
     }
   ],
   preview: {

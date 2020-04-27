@@ -7,22 +7,122 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
 export const query = graphql`
-  query ProjectTemplateQuery($id: String!) {
-    sampleProject: sanitySampleProject(id: {eq: $id}) {
+  query ServicesTemplateQuery($id: String!) {
+    services: sanityServices(id: {eq: $id}) {
       id
       publishedAt
-      categories {
-        _id
-        title
-      }
-      relatedProjects {
-        title
-        _id
-        slug {
-          current
-        }
-      }
+      categories
       mainImage {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+        alt
+      }
+      mainImage2 {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+        alt
+      }
+      mainImage3 {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+        alt
+      }
+      mainImage4 {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+        alt
+      }
+      mainImage5 {
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        asset {
+          _id
+        }
+        alt
+      }
+      mainImage6 {
         crop {
           _key
           _type
@@ -49,54 +149,26 @@ export const query = graphql`
         current
       }
       _rawBody
-      members {
-        _key
-        person {
-          image {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-          }
-          name
-        }
-        roles
-      }
     }
   }
 `
 
-const ProjectTemplate = props => {
+const ServicesTemplate = props => {
   const {data, errors} = props
-  const project = data && data.sampleProject
+  const services = data && data.services
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {project && <SEO title={project.title || 'Untitled'} />}
+      {services && <SEO title={services.title || 'Untitled'} />}
 
       {errors && (
         <Container>
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {project && <Project {...project} />}
+      {services && <Project {...services} />}
     </Layout>
   )
 }
 
-export default ProjectTemplate
+export default ServicesTemplate
