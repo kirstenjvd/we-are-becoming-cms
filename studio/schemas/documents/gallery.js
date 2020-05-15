@@ -9,10 +9,7 @@ export default {
       type: 'array',
       name: 'slides',
       title: 'Slides',
-      of: [{ type: 'image' }],
-      options: {
-        layout: 'grid'
-      }
+      of: [{ type: 'imageGallery' }]
     }
   ]
 }
