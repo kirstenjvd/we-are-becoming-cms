@@ -13,7 +13,6 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-
 import Header from "../components/header"
 import AboveFold from "../components/aboveFold"
 import Mission from "../components/mission"
@@ -28,17 +27,17 @@ export const query = graphql`
       description
       keywords
     }
-    services: allSanityServices(
-      limit: 6
-      sort: {fields: [publishedAt], order: DESC}
-      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
-    ) {
-      edges {
-        node {
-          id
-          title
-          slug {
-            current
+    home: sanityHome(_id: { regex: "/(drafts.|)home/" }) {
+      id
+      gallery{
+        _key
+        _type
+        slides{
+          asset{
+            fixed(width: 1000) {
+              ...GatsbySanityImageFixed_noBase64
+            }
+            _id
           }
         }
       }
@@ -63,9 +62,9 @@ export const query = graphql`
     }
   }
 `
-
 const IndexPage = props => {
   const {data, errors, siteTitle} = props
+  const home = data && data.home
 
   if (errors) {
     return (
@@ -76,11 +75,6 @@ const IndexPage = props => {
   }
   const allInstaNode = (data || {}).allInstaNode
   const site = (data || {}).site
-  const servicesNodes = (data || {}).services
-    ? mapEdgesToNodes(data.services)
-      .filter(filterOutDocsWithoutSlugs)
-      .filter(filterOutDocsPublishedInTheFuture)
-    : []
 
   if (!site) {
     throw new Error(
@@ -93,19 +87,10 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Header />
       <AboveFold />
-      <Mission />
+      <Mission {...home.gallery} />
       <SocialContainer nodes={allInstaNode} />
       <Services />
       <Testimonials />
-      {servicesNodes &&
-        servicesNodes.map(node => (
-          <span key={node.id}>
-            <Link to={`/services/${node.slug.current}`}>
-              {node.title}
-            </Link>
-          </span>
-        ))
-      }
     </Layout>
   )
 }

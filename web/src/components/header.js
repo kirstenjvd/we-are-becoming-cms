@@ -4,7 +4,8 @@ import styled from "@emotion/styled"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
-import beLogo from "../images/Union 2.svg"
+import beLogo from "../images/logo-be.svg"
+import beLogoText from "../images/logo-text.svg"
 
 const bp = {
   smaller: 300,
@@ -43,18 +44,29 @@ const Wrapper = styled.div`
     padding-bottom: 195px;
   }
 `
-const Be = styled.img`
+const Logo = styled(Link)`
   position: absolute;
   left: 15px;
   top: 15px;
   max-width: 190px;
   z-index: 4;
   ${mq('my')} {
-    position: fixed;
+    position: absolute;
     top: 83px;
     left: 115px;
     max-width: 152.13px;
   }
+`
+const Be = styled.img`
+  max-width: 190px;
+  position: fixed;
+`
+const LogoText = styled.img`
+  max-width: 190px;
+  z-index: 4;
+  position: absolute;
+  top: 69px;
+  left: 108px;
 `
 const Insta = styled.a`
   max-width: 28px;
@@ -138,13 +150,14 @@ const Menu = styled.div `
     padding-top: 160px;
     visibility: visible;
    ${mq('tablet')}{
-    padding-top: 155px;
+    padding-top: 195px;
    }
   }
   a {
     text-decoration: none;
     padding: 20px 10px;
     font-size: 50px;
+    font-weight: 400;
     display: block;
     line-height: 1;
     &:hover {
@@ -182,9 +195,10 @@ class Header extends React.Component {
     return (
       <HeaderMain>
         <Wrapper>
-          <Link to="/">
+          <Logo to="/">
             <Be src={beLogo} alt="be/" />
-          </Link>
+            <LogoText src={beLogoText} alt="Becoming Design Office LTD" />
+          </Logo>
           <Insta className={this.state.isTop ? 'down' : 'up'} rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/becomingdesignoffice/">
             <FontAwesomeIcon icon={faInstagram} />
           </Insta>
@@ -192,9 +206,9 @@ class Header extends React.Component {
           <Hamburger/>
           <Menu id="drop">{/*whole drop down*/}
             <div>
-              <div><Link onClick={showDrop} to="/">Home</Link></div>
               <div><Link onClick={showDrop} to="/services/">Services</Link></div>
               <div><a onClick={showDrop} href="#footer">Contact Us</a></div>
+              <div><Link onClick={showDrop} to="/">Home</Link></div>
             </div>
           </Menu>
 

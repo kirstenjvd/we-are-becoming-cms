@@ -1,5 +1,13 @@
 import React from "react"
+import {Link} from 'gatsby'
 import styled from "@emotion/styled"
+import {buildImageObj} from '../lib/helpers'
+import {imageUrlFor} from '../lib/image-url'
+
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import cyclist from "../images/testimonial-img.webp";
+
 
 const bp = {
   smaller: 300,
@@ -19,6 +27,7 @@ const mq = n => {
   return result;
 };
 
+
 const Container = styled.div`
   max-width: 990px;
   margin: auto;
@@ -26,40 +35,129 @@ const Container = styled.div`
   padding-right: 20px;
   position: relative;
 `
+const Copy = styled.div`
+  padding-bottom: 80px;
+  ${mq('tablet')} {
+    max-width: 50%;
+    padding-right: 30px;
+    margin-bottom: 0;
+  }
+`
+const Carousel = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  div {
+    height: 100%;
+  }
+  .alice-carousel img {
+    display: block;
+    object-fit: cover;
+    height: 50vh;
+    ${mq('tablet')} {
+      width: auto;
+      height: 100%;
+    }
+  }
+  ${mq('tablet')} {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+`
 const OurMission = styled.section`
-  padding-top: 120px;
-  padding-bottom: 106px;
+  padding-top: 80px;
   background-color: #ff5959;
   position: relative;
   z-index: 1;
-  ${mq('my')} {
-    padding-top: 208px;
-    padding-bottom: 195px;
+  ${mq('tablet')} {
+    padding-top: 140px;
   }
   h2 {
     max-width: 285px;
     font-size: 34px;
     line-height: 1.2;
     font-weight: 500;
+    color: #333333;
   }
   p {
     max-width: 802px;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1.35;
     font-weight: 300;
+    color: #333333;
+  }
+
+`
+const ServiceLink = styled(Link)`
+  color: #fff;
+  display: block;
+  font-size: 40px;
+  position: relative;
+  text-decoration: none;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 60px;
+  &:before {
+    background: #fff;
+    position: absolute;
+    right: 102%;
+    top: 30px;
+    content: '';
+    height: 2px;
+    width: 30px;
+  }
+  &:hover {
+    color: #333333;
   }
 `
-export const Mission = () => {
+
+const handleOnDragStart = e => e.preventDefault()
+
+function Mission (props) {
+
+
   return (
   <OurMission>
     <Container>
-      <h2>Hi there! </h2>
-      <p>Becoming works with emerging and established companies to create ownable and competitive visual identities and brands.</p>
-      <p>
-      We offer process-based leadership to our clients to determine exactly what their goals are and what is required to effectively meet those goals. We love art, but above all, we value the success that thoughtful and strategic applied design thinking can bring to a company’s bottom line.
-      </p>
-      <p>We are a collaborative studio and work with like-minded clients who understand that great design produces tangible results.</p>
+      <Copy>
+        <ServiceLink to="/services">
+          Services, <br/>
+          case studies <br/>
+          & process.
+        </ServiceLink>
+        <h2>Who are we?</h2>
+        <p>Hi! We’re graphic designers who like to create  super competitive visual identities and brands.</p>
+        <p>Of course we love art, but above all, we value the success that thoughtful and strategic applied design brings to a company’s bottom line.</p>
+        <p>Have a project in mind? Let’s talk!</p>
+      </Copy>
     </Container>
+
+    <Carousel>
+      <AliceCarousel
+        mouseTrackingEnabled={true}
+        mouseDragEnabled={true}
+        disableAutoPlayOnAction={false}
+        buttonsDisabled={true}
+        autoPlay={true}
+        dotsDisabled={true}
+        autoPlayInterval={5000}>
+        {props.slides.map(slide => (
+          <div role="presentation" onDragStart={handleOnDragStart} key={slide._key}>
+            {slide.asset && (
+              <img
+                src={imageUrlFor(buildImageObj(slide))
+                  .width(600)
+                  .url()}
+              />
+            )}
+          </div>
+        ))}
+      </AliceCarousel>
+    </Carousel>
+
   </OurMission>
   )
 }
