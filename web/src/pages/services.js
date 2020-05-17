@@ -1,6 +1,8 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import {Link} from 'gatsby'
+import {buildImageObj} from '../lib/helpers'
+import {imageUrlFor} from '../lib/image-url'
 
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
@@ -34,15 +36,16 @@ const mq = n => {
 };
 
 const Services = styled.div`
-  background: url( ${background} );
   background-size: cover;
-  background-color: #000;
+  background-color: #333;
   padding-bottom: 80px;
   min-height: 100vh;
 `
 const H1 = styled.h1`
   font-size: 30px;
   font-weight: 200;
+  position: relative;
+  z-index: 3;
   ${mq('medium')} {
     font-size: 50px;
   }
@@ -55,7 +58,7 @@ const Links = styled.ul`
     text-decoration: none;
     font-size: 30px;
     font-weight: 500;
-    padding: 12px 0;
+    padding: 18px 0;
     display: block;
     ${mq('medium')} {
       font-size: 46px;
@@ -63,6 +66,47 @@ const Links = styled.ul`
     &:hover {
       color: #FF5959;
     }
+  }
+`
+const BG = styled.div `
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  z-index: 1;
+  visibility: hidden;
+  transition: all .5s;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    background: rgba(55,55,55,0.6);
+  }
+  img {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    object-fit: cover;
+    filter: blur(2px);
+  }
+`
+const Service = styled.li `
+  margin-bottom: 0;
+
+  &:hover {
+    > div {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  a {
+    position: relative;
+    z-index: 3;
   }
 `
 
@@ -75,12 +119,6 @@ export const query = graphql`
       edges {
         node {
           id
-          mainImage {
-            asset {
-              _id
-            }
-            alt
-          }
           title
           slug {
             current
@@ -134,11 +172,23 @@ const ServicesPage = props => {
           <Links>
             {servicesNodes &&
               servicesNodes.map(node => (
-                <li key={node.id}>
+                <Service key={node.id}>
                   <Link to={`/services/${node.slug.current}`}>
                     {node.title}
                   </Link>
-                </li>
+                  {node.mainImage && node.mainImage.asset && (
+                    <BG>
+                      <img role="presentation"
+                        src={imageUrlFor(buildImageObj(node.mainImage))
+                          .width(1200)
+                          .height(Math.floor((9 / 16) * 1200))
+                          .fit('crop')
+                          .url()}
+                        alt="null"
+                      />
+                    </BG>
+                  )}
+                </Service>
               ))}
           </Links>
         </div>
