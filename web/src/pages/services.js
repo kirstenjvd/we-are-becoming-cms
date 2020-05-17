@@ -69,7 +69,7 @@ const Links = styled.ul`
 export const query = graphql`
   query ServicesPageQuery {
     services: allSanityServices(
-      sort: {fields: [publishedAt], order: ASC}
+      sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
     ) {
       edges {
