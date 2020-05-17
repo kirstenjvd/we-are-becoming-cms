@@ -130,6 +130,7 @@ const Menu = styled.div `
     font-size: 50px;
     display: block;
     line-height: 1;
+    font-weight: 500;
     &:hover {
       color: #333333;
     }

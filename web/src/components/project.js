@@ -41,7 +41,7 @@ const H2 = styled.h2`
 `
 const ServicesLink = styled.a`
   color: #FF5959;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 22px;
   text-decoration: none;
   right: 20px;

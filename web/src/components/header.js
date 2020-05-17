@@ -157,7 +157,7 @@ const Menu = styled.div `
     text-decoration: none;
     padding: 20px 10px;
     font-size: 50px;
-    font-weight: 400;
+    font-weight: 500;
     display: block;
     line-height: 1;
     &:hover {

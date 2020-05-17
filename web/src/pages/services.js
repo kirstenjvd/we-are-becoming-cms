@@ -54,7 +54,7 @@ const Links = styled.ul`
   a {
     text-decoration: none;
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 500;
     padding: 12px 0;
     display: block;
     ${mq('medium')} {
@@ -84,6 +84,28 @@ export const query = graphql`
           title
           slug {
             current
+          }
+          mainImage {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+            }
+            alt
           }
         }
       }

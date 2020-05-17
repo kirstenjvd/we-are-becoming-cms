@@ -33,6 +33,8 @@ export const query = graphql`
         _key
         _type
         slides{
+          serviceUrl
+          caption
           asset{
             fixed(width: 1000) {
               ...GatsbySanityImageFixed_noBase64

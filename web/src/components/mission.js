@@ -48,6 +48,10 @@ const Carousel = styled.div`
   height: 100%;
   width: 100%;
   background: #fff;
+  overflow: hidden;
+  img {
+    transition: all .25s;
+  }
   div {
     height: 100%;
   }
@@ -66,6 +70,78 @@ const Carousel = styled.div`
     right: 0;
     top: 0;
   }
+  .alice-carousel__prev-btn {
+    text-align: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+  }
+  .alice-carousel__next-btn {
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25%;
+  }
+  .alice-carousel__prev-btn [data-area]::after,
+  .alice-carousel__next-btn [data-area]::after {
+    opacity: 0;
+  }
+  .alice-carousel__next-btn-item,
+  .alice-carousel__prev-btn-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .alice-carousel__prev-btn-item span,
+  .alice-carousel__next-btn-item span {
+    display: block;
+    margin: 30px auto;
+    width: 35px;
+    height: 35px;
+    border-top: 4px solid #fff;
+    border-left: 4px solid #fff;
+  }
+  .alice-carousel__prev-btn-item span {
+    transform: rotate(-45deg);
+  }
+
+  .alice-carousel__next-btn-item span {
+    transform: rotate(135deg);
+  }
+`
+const Caption = styled.a`
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  position: absolute;
+  width: 50%;
+  top: 0;
+  height: 100%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 40px;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 0;
+  transition: all .25s;
+  &:hover {
+    padding-bottom: 50px;
+    opacity: 1;
+    width: 100%;
+    color: #fff;
+    background: rgba(51,51,51,0.6);
+  }
 `
 const OurMission = styled.section`
   padding-top: 80px;
@@ -79,7 +155,7 @@ const OurMission = styled.section`
     max-width: 285px;
     font-size: 34px;
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 600;
     color: #333333;
   }
   p {
@@ -97,7 +173,7 @@ const ServiceLink = styled(Link)`
   font-size: 40px;
   position: relative;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.1;
   margin-bottom: 60px;
   &:before {
@@ -139,8 +215,7 @@ function Mission (props) {
       <AliceCarousel
         mouseTrackingEnabled={true}
         mouseDragEnabled={true}
-        disableAutoPlayOnAction={false}
-        buttonsDisabled={true}
+        disableAutoPlayOnAction={true}
         autoPlay={true}
         dotsDisabled={true}
         autoPlayInterval={5000}>
@@ -152,6 +227,9 @@ function Mission (props) {
                   .width(600)
                   .url()}
               />
+            )}
+            {slide.serviceUrl && slide.caption && (
+              <Caption href={slide.serviceUrl}><span>{slide.caption}</span></Caption>
             )}
           </div>
         ))}
