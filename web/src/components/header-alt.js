@@ -24,7 +24,7 @@ const mq = n => {
 
 const HeaderMain = styled.header`
   position: absolute;
-  z-index: 3;
+  z-index: 4;
 `
 const Wrapper = styled.div`
   position: relative;
