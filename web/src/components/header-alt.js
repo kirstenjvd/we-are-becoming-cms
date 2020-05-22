@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
-
-import beLogoAlt from "../images/be-logo-alt.svg"
+import beLogo from "../images/logo-be-dark.svg"
+import beLogoText from "../images/logo-text-dark.svg"
 
 const bp = {
   smaller: 300,
@@ -41,18 +41,29 @@ const Wrapper = styled.div`
     padding-bottom: 195px;
   }
 `
-const Be = styled.img`
+const Logo = styled(Link)`
   position: absolute;
   left: 15px;
   top: 15px;
   max-width: 190px;
   z-index: 4;
   ${mq('my')} {
-    position: fixed;
+    position: absolute;
     top: 83px;
     left: 115px;
     max-width: 152.13px;
   }
+`
+const Be = styled.img`
+  max-width: 99px;
+  position: fixed;
+`
+const LogoText = styled.img`
+  max-width: 74px;
+  z-index: 4;
+  position: absolute;
+  top: 51px;
+  left: 79px;
 `
 const showDrop = () => {
   document.getElementById("drop").classList.toggle("open");
@@ -166,9 +177,10 @@ class HeaderAlt extends React.Component {
     return (
       <HeaderMain>
         <Wrapper>
-          <Link to="/">
-            <Be src={beLogoAlt} alt="be/" />
-          </Link>
+          <Logo to="/">
+            <Be src={beLogo} alt="be/" />
+            <LogoText src={beLogoText} alt="Becoming Design Office LTD" />
+          </Logo>
 
           <Hamburger/>
           <Menu id="drop">{/*whole drop down*/}

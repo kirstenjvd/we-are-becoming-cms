@@ -59,8 +59,9 @@ const Carousel = styled.div`
     display: block;
     object-fit: cover;
     height: 50vh;
+    object-fit: cover;
     ${mq('tablet')} {
-      width: auto;
+      width: 100%;
       height: 100%;
     }
   }
@@ -132,9 +133,14 @@ const Caption = styled.a`
   opacity: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   padding-bottom: 0;
   transition: all .25s;
+  span {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.1;
+  }
   &:hover {
     padding-bottom: 50px;
     opacity: 1;
@@ -215,7 +221,6 @@ function Mission (props) {
       <AliceCarousel
         mouseTrackingEnabled={true}
         mouseDragEnabled={true}
-        disableAutoPlayOnAction={true}
         autoPlay={true}
         dotsDisabled={true}
         autoPlayInterval={5000}>

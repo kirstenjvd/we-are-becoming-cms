@@ -58,15 +58,15 @@ const Logo = styled(Link)`
   }
 `
 const Be = styled.img`
-  max-width: 190px;
+  max-width: 99px;
   position: fixed;
 `
 const LogoText = styled.img`
-  max-width: 190px;
+  max-width: 74px;
   z-index: 4;
   position: absolute;
-  top: 69px;
-  left: 108px;
+  top: 51px;
+  left: 79px;
 `
 const Insta = styled.a`
   max-width: 28px;
