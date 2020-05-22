@@ -223,6 +223,8 @@ function Mission (props) {
         mouseDragEnabled={true}
         autoPlay={true}
         dotsDisabled={true}
+        stopAutoPlayOnHover={false}
+        disableAutoPlayOnAction={false}
         autoPlayInterval={5000}>
         {props.slides.map(slide => (
           <div role="presentation" onDragStart={handleOnDragStart} key={slide._key}>
