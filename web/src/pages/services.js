@@ -92,7 +92,6 @@ const BG = styled.div `
     height: 100vh;
     max-width: 100%;
     object-fit: cover;
-    filter: blur(2px);
   }
 `
 const Service = styled.li `
@@ -150,7 +149,6 @@ export const query = graphql`
     }
   }
 `
-
 const ServicesPage = props => {
   const {data, errors} = props
   if (errors) {
