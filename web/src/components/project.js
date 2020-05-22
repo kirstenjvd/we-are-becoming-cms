@@ -63,10 +63,7 @@ const BlogPost = styled.article`
     font-size: 16px;
     font-weight: 200;
     line-height: 1.3;
-    margin-bottom: 60px;
-    ${mq('medium')} {
-      margin-bottom: 0;
-    }
+    margin-bottom: 40px;
   }
 `
 const Flex = styled.div`
