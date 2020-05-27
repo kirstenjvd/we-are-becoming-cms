@@ -132,21 +132,25 @@ const Caption = styled.a`
   font-size: 40px;
   opacity: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding-bottom: 0;
   transition: all .25s;
+  padding-top: 90px;
+  padding-left: 70px;
   span {
-    font-size: 40px;
     font-weight: 500;
-    line-height: 1.1;
+    font-size: 70px;
+    text-align: left;
+    max-width: 500px;
+    line-height: 1;
   }
   &:hover {
     padding-bottom: 50px;
     opacity: 1;
     width: 100%;
     color: #fff;
-    background: rgba(51,51,51,0.6);
+    background: rgba(255,89,89,0.8);
   }
 `
 const OurMission = styled.section`
