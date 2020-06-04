@@ -45,9 +45,7 @@ module.exports = {
     {
       resolve: `gatsby-source-instagram`,
       options: {
-        username: `becomingdesignoffice`,
-        access_token: `IGQVJWMWZAJYXhjdHN2MDJIZAHNta1hsVGM3RllmNDBWUEdVRURQTy00OGJHNi1sdnNoZAm5nWEl3UHh6TG9Rb2lrTDA2RGFFSFUxN0EyRmtId09IUFplck0zRURjWDhjcjFPUXZAadTl0N01hZAElsOE9pS2ZANbzZAiZAUlwLVhB`,
-        instagram_id: `515922255659297`,
+        username: `becomingdesignoffice`
       },
     },
   ]
