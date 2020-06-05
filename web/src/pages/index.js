@@ -44,24 +44,6 @@ export const query = graphql`
         }
       }
     }
-    allInstaNode(filter: { username: { eq: "becomingdesignoffice" } }) {
-      edges {
-        node {
-          id
-          username
-          likes
-          caption
-          comments
-          localFile {
-            childImageSharp {
-              fluid(quality: 70, maxWidth: 600, maxHeight: 600) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-        }
-      }
-    }
   }
 `
 const IndexPage = props => {
@@ -75,7 +57,7 @@ const IndexPage = props => {
       </Layout>
     )
   }
-  const allInstaNode = (data || {}).allInstaNode
+
   const site = (data || {}).site
 
   if (!site) {
@@ -90,7 +72,7 @@ const IndexPage = props => {
       <Header />
       <AboveFold />
       <Mission {...home.gallery} />
-      <SocialContainer nodes={allInstaNode} />
+      <SocialContainer />
       <Services />
       <Testimonials />
     </Layout>

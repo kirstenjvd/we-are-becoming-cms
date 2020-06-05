@@ -6,11 +6,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 
 const handleOnDragStart = e => e.preventDefault()
 
-const Node = ({ node }) => (
-  <div role="presentation" onDragStart={handleOnDragStart}>
-    <Img width={64} height={64} fluid={node.localFile.childImageSharp.fluid} />
-  </div>
-)
+
 
 export const SocialFeed = ({ nodes}) => {
 
@@ -36,9 +32,7 @@ export const SocialFeed = ({ nodes}) => {
       responsive={responsive}
       stagePadding={stagePadding}
       >
-      {nodes.edges.map(instagram => (
-        <Node key={instagram.node.id} node={instagram.node} />
-      ))}
+
     </AliceCarousel>
   )
 }

@@ -1,6 +1,7 @@
 import React from "react"
 import SocialFeed from "./socialFeed"
 import styled from "@emotion/styled"
+import InstagramPosts from '@luchoster/react-ig'
 
 const Social = styled.section`
   background: #fff;
@@ -16,10 +17,10 @@ const Social = styled.section`
   }
 `
 
-export const SocialContainer = ({ nodes }) => {
+export const SocialContainer = ({ }) => {
   return (
     <Social>
-      <SocialFeed nodes={nodes} />
+      <InstagramPosts username="becomingdesignoffice" />
     </Social>
   )
 }
