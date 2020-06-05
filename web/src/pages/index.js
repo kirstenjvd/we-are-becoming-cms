@@ -72,7 +72,6 @@ const IndexPage = props => {
       <Header />
       <AboveFold />
       <Mission {...home.gallery} />
-      <SocialContainer />
       <Services />
       <Testimonials />
     </Layout>
