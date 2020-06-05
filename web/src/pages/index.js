@@ -49,9 +49,6 @@ export const query = graphql`
         node {
           id
           username
-          likes
-          caption
-          comments
           localFile {
             childImageSharp {
               fluid(quality: 70, maxWidth: 600, maxHeight: 600) {
