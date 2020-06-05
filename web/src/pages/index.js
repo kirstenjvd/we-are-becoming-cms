@@ -47,7 +47,6 @@ export const query = graphql`
     allInstaNode(filter: { username: { eq: "becomingdesignoffice" } }) {
       edges {
         node {
-          id
           username
           localFile {
             childImageSharp {
