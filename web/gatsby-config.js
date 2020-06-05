@@ -46,7 +46,7 @@ module.exports = {
       resolve: `gatsby-source-instagram`,
       options: {
         username: `becomingdesignoffice`,
-        access_token: `IGQVJWMWZAJYXhjdHN2MDJIZAHNta1hsVGM3RllmNDBWUEdVRURQTy00OGJHNi1sdnNoZAm5nWEl3UHh6TG9Rb2lrTDA2RGFFSFUxN0EyRmtId09IUFplck0zRURjWDhjcjFPUXZAadTl0N01hZAElsOE9pS2ZANbzZAiZAUlwLVhB`,
+        access_token: `IGQVJYRWNTS2NNaWRPdXVBSjR0UktNaVd4LUlUMWpDSHh2anF1TnNjY1hpeXphQjktWFUyeHl3ei1WOWdSUjZA5dGpnZA1VOemlib0FOeVpyMlFaTnZAaN1dYa0MyV0x6cERpWl9NbHRXN1pBLU1EQnZADTQZDZD`,
         instagram_id: `515922255659297`,
       },
     },
