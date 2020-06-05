@@ -185,9 +185,9 @@ class HeaderAlt extends React.Component {
           <Hamburger/>
           <Menu id="drop">{/*whole drop down*/}
             <div>
-              <div><Link to="/">Home</Link></div>
               <div><Link to="/services/" >Services</Link></div>
               <div><a onClick={showDrop} href="#footer">Contact Us</a></div>
+              <div><Link to="/">Home</Link></div>
             </div>
           </Menu>
 

@@ -12,6 +12,7 @@ export const query = graphql`
       id
       publishedAt
       categories
+      heading2
       mainImage {
         crop {
           _key

@@ -33,6 +33,7 @@ const mq = n => {
 const H1 = styled.h1`
   font-size: 50px;
   font-weight: 200;
+  max-width: 732px;
 `
 const H2 = styled.h2`
   font-size: 16px;
@@ -110,7 +111,7 @@ const Photos = styled.div`
 `
 
 function Project (props) {
-  const {_rawBody, title, categories, mainImage, mainImage2, mainImage3, mainImage4, mainImage5, mainImage6, publishedAt} = props
+  const {_rawBody, title, heading2, categories, mainImage, mainImage2, mainImage3, mainImage4, mainImage5, mainImage6, publishedAt} = props
   return (
 
     <BlogPost className="postStyle">
@@ -125,7 +126,7 @@ function Project (props) {
           <Right>
             {categories && categories.length > 0 && (
               <div>
-                <H2>Visual identities typically include, but are not limited to the following items:</H2>
+                <H2>{props.heading2}</H2>
                 <ul>
                   {categories.map(category => (
                     <li key={category._id}>{category}</li>

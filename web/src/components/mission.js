@@ -37,6 +37,10 @@ const Container = styled.div`
 `
 const Copy = styled.div`
   padding-bottom: 80px;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
   ${mq('tablet')} {
     max-width: 50%;
     padding-right: 30px;
@@ -135,7 +139,6 @@ const Caption = styled.a`
   justify-content: flex-start;
   align-items: flex-start;
   padding-bottom: 0;
-  transition: all .25s;
   padding-top: 90px;
   padding-left: 70px;
   span {
@@ -217,7 +220,7 @@ function Mission (props) {
         <h2>Who are we?</h2>
         <p>Hi! We’re graphic designers who like to create  super competitive visual identities and brands.</p>
         <p>Of course we love art, but above all, we value the success that thoughtful and strategic applied design brings to a company’s bottom line.</p>
-        <p>Have a project in mind? Let’s talk!</p>
+        <p>Have a project in mind? <a href="#footer">Let’s talk!</a></p>
       </Copy>
     </Container>
 

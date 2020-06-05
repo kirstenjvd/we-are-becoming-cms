@@ -27,6 +27,11 @@ export default {
       type: 'datetime'
     },
     {
+      name: 'heading2',
+      title: 'Sub Heading',
+      type: 'string'
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'projectPortableText'
