@@ -69,7 +69,7 @@ const Reputation = styled.section`
   }
   .alice-carousel__dots-item:hover,
   .alice-carousel__dots-item.__active {
-    background-color: #333;
+    background-color: #ff5959;
   }
 `
 const Small = styled.span`

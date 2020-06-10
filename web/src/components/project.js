@@ -96,6 +96,7 @@ const Photos = styled.div`
     justify-content: space-between;
   }
   span {
+    display: block;
     margin-bottom: 10px;
   }
   span:nth-child(1),
@@ -106,7 +107,11 @@ const Photos = styled.div`
   span:nth-child(3),
   span:nth-child(4),
   span:nth-child(5) {
-    width: 49.5%;
+    width: 100%;
+    ${mq('tablet')} {
+      width: 49.5%;
+
+    }
   }
 `
 

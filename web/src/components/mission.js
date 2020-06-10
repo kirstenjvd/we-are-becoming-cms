@@ -64,6 +64,7 @@ const Carousel = styled.div`
     object-fit: cover;
     height: 50vh;
     object-fit: cover;
+    width: 100%;
     ${mq('tablet')} {
       width: 100%;
       height: 100%;
@@ -81,6 +82,10 @@ const Carousel = styled.div`
     top: 0;
     left: 0;
     width: 25%;
+    display: none;
+    ${mq('tablet')} {
+      display: block;
+    }
   }
   .alice-carousel__next-btn {
     text-align: right;
@@ -88,6 +93,10 @@ const Carousel = styled.div`
     top: 0;
     right: 0;
     width: 25%;
+    display: none;
+    ${mq('tablet')} {
+      display: block;
+    }
   }
   .alice-carousel__prev-btn [data-area]::after,
   .alice-carousel__next-btn [data-area]::after {
@@ -141,6 +150,7 @@ const Caption = styled.a`
   padding-bottom: 0;
   padding-top: 90px;
   padding-left: 70px;
+  display: none;
   span {
     font-weight: 500;
     font-size: 70px;
@@ -154,6 +164,9 @@ const Caption = styled.a`
     width: 100%;
     color: #fff;
     background: rgba(255,89,89,0.8);
+  }
+  ${mq('tablet')} {
+    display: block;
   }
 `
 const OurMission = styled.section`
@@ -206,7 +219,6 @@ const ServiceLink = styled(Link)`
 const handleOnDragStart = e => e.preventDefault()
 
 function Mission (props) {
-
 
   return (
   <OurMission>

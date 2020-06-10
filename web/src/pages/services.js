@@ -56,7 +56,8 @@ const Links = styled.ul`
   margin-left: 0;
   a {
     text-decoration: none;
-    font-size: 30px;
+    font-size: 28px;
+    line-height: 1.1;
     font-weight: 500;
     padding: 18px 0;
     display: block;
@@ -78,6 +79,7 @@ const BG = styled.div `
   z-index: 1;
   visibility: hidden;
   transition: all .5s;
+  display: none;
   &:after {
     content: '';
     position: absolute;
@@ -92,6 +94,9 @@ const BG = styled.div `
     height: 100vh;
     max-width: 100%;
     object-fit: cover;
+  }
+  ${mq('tablet')} {
+    display: block;
   }
 `
 const Service = styled.li `
