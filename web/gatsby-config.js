@@ -7,7 +7,6 @@ const clientConfig = require('./client-config')
 const token = process.env.SANITY_READ_TOKEN
 
 const isProd = process.env.NODE_ENV === 'production'
-
 module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
@@ -21,6 +20,13 @@ module.exports = {
         overlayDrafts: !isProd && token
       }
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-169208098-1"
+      }
+    },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
