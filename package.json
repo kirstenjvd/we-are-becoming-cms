@@ -15,5 +15,10 @@
   },
   "devDependencies": {
     "lerna": "^3.22.0"
+  },
+  "dependencies": {
+    "gatsby-plugin-google-analytics": "^2.3.4",
+    "gatsby-plugin-sitemap": "^2.4.5",
+    "sanity": "^1.149.7"
   }
 }
