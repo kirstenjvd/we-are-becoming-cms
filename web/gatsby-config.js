@@ -26,7 +26,6 @@ module.exports = {
         trackingId: "UA-169208098-1"
       }
     },
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
