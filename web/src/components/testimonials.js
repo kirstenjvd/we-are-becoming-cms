@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import cyclist from "../images/testimonial-img.webp";
-import cyclistMobile from "../images/testimonial-img-mobile.webp";
+import cyclist from "../images/testimonial-bg.webp";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
@@ -30,6 +29,7 @@ const Container = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   position: relative;
+  z-index: 2;
 `
 const Reputation = styled.section`
   margin-bottom: -1px;
@@ -38,13 +38,21 @@ const Reputation = styled.section`
   padding-bottom: 78px;
   position: relative;
   z-index: 1;
-  background: url(${cyclistMobile});
+  background: url(${cyclist});
   background-size: cover;
+  &:after {
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(51,51,51,0.5);
+    z-index: 1;
+  }
   ${mq('tablet')} {
     padding-top: 165px;
     padding-bottom: 78px;
-    background: url(${cyclist});
-    background-size: cover;
   }
   h2 {
     font-weight: 500;
