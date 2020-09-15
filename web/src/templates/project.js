@@ -34,6 +34,7 @@ export const query = graphql`
           _id
         }
         alt
+        caption
       }
       mainImage2 {
         crop {
@@ -56,6 +57,7 @@ export const query = graphql`
           _id
         }
         alt
+        caption
       }
       mainImage3 {
         crop {
@@ -78,6 +80,7 @@ export const query = graphql`
           _id
         }
         alt
+        caption
       }
       mainImage4 {
         crop {
@@ -100,6 +103,7 @@ export const query = graphql`
           _id
         }
         alt
+        caption
       }
       mainImage5 {
         crop {
@@ -122,6 +126,7 @@ export const query = graphql`
           _id
         }
         alt
+        caption
       }
       mainImage6 {
         crop {
@@ -144,6 +149,7 @@ export const query = graphql`
           _id
         }
         alt
+        caption
       }
       title
       slug {
