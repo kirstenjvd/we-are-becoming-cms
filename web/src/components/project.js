@@ -76,6 +76,23 @@ const ProjectContainer = styled.div`
   position: relative;
   margin-bottom: 10px;
 
+  &:nth-child(1),
+  &:nth-child(6) {
+    width: 100%;
+  }
+
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(4),
+  &:nth-child(5) {
+    width: 100%;
+    
+    ${mq('tablet')} {
+      width: 49.5%;
+      display: inline-block;
+    }
+  }
+
   &:hover {
     div {
       visibility: visible;
@@ -122,22 +139,7 @@ const Photos = styled.div`
   > div {
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-  span {
-    display: block;
-  }
-  span:nth-child(1),
-  span:nth-child(6) {
-    width: 100%;
-  }
-  span:nth-child(2),
-  span:nth-child(3),
-  span:nth-child(4),
-  span:nth-child(5) {
-    width: 100%;
-    ${mq('tablet')} {
-      width: 49.5%;
-    }
+    display: flex;
   }
 `
 
