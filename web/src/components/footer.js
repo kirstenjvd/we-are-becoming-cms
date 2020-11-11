@@ -133,8 +133,8 @@ export const Footer = () => {
       <Container>
         <Column>
           <Chat>
-            <span>Work with us by chatting with</span><br/> <a href="mailto:ross@wearebecoming.ca">
-            ross@wearebecoming.ca</a>
+            <span>Contact us about your project</span><br/> <a href="mailto:hello@wearebecoming.ca">
+            hello@wearebecoming.ca</a>
           </Chat>
           <FormContainer>
             <h2>Subscribe to our monthly newsletter</h2>
@@ -167,9 +167,9 @@ export const Footer = () => {
           </Intern>
           <Address>
             Becoming Design Office Ltd. <br />
-            2031 Store Street  Victoria, BC  V8T 5L9 <br />
+            738 Fort St Second Floor, Victoria, BC V8W 1H2<br />
             <a href="tel:1.604.290.5665 ">+1 604 290 5665 </a><br />
-            <a href="mailto:ross@wearebecoming.ca">ross@wearebecoming.ca</a>
+            <a href="mailto:hello@wearebecoming.ca">hello@wearebecoming.ca</a>
           </Address>
          </Column>
       </Container>
