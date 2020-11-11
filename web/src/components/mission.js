@@ -164,7 +164,7 @@ const Caption = styled.a`
     width: 96%;
     height: 96%;
     color: #fff;
-    background: rgba(255,89,89,1);
+    background: rgba(255,89,89,0.8);
     margin: 2%;
     left: 0;
     transform: none;
