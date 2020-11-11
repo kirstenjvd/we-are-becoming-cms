@@ -148,12 +148,12 @@ const Caption = styled.a`
   justify-content: flex-start;
   align-items: flex-start;
   padding-bottom: 0;
-  padding-top: 122px;
+  padding-top: 90px;
   padding-left: 70px;
   display: none;
   span {
     font-weight: 500;
-    font-size: 50px;
+    font-size: 70px;
     text-align: left;
     max-width: 500px;
     line-height: 1;
@@ -161,14 +161,9 @@ const Caption = styled.a`
   &:hover {
     padding-bottom: 50px;
     opacity: 1;
-    width: 96%;
-    height: 96%;
+    width: 100%;
     color: #fff;
-    background: rgba(255,89,89,1);
-    margin: 2%;
-    left: 0;
-    transform: none;
-    text-align: left;
+    background: rgba(255,89,89,0.8);
   }
   ${mq('tablet')} {
     display: block;
