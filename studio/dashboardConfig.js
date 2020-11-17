@@ -1,11 +1,5 @@
 export default {
   widgets: [
-    {
-      name: 'sanity-tutorials',
-      options: {
-        templateRepoId: 'sanity-io/sanity-template-gatsby-portfolio'
-      }
-    },
     {name: 'structure-menu'},
     {
       name: 'project-info',
@@ -18,16 +12,16 @@ export default {
                 'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
               sites: [
                 {
-                  buildHookId: '5ea5dbf04c181e83ff2d52e3',
+                  buildHookId: '5fb418c9fe6e5d01160c923f',
                   title: 'Sanity Studio',
-                  name: 'we-are-becoming-cms-studio',
-                  apiId: 'fe3c7a21-faa5-493f-a196-c49cdb81f8aa'
+                  name: 'wearebecoming',
+                  apiId: 'b05f8dcd-5180-433c-b2b0-447f6c31220c'
                 },
                 {
-                  buildHookId: '5ea5dbf0d4cde2e09069cc3c',
+                  buildHookId: '5ed994c77f8e20b891d9da47',
                   title: 'Portfolio Website',
-                  name: 'we-are-becoming-cms',
-                  apiId: '1763a4b2-4808-41d1-aa5a-ed4410e4b348'
+                  name: 'we-are-becoming',
+                  apiId: '6e631844-cdc7-437d-a739-950cdd18769c'
                 }
               ]
             }
