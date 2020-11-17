@@ -34,6 +34,9 @@ export const query = graphql`
           _id
         }
         alt
+        rolloverTitle
+        rolloverDesc
+        rolloverCategories
       }
       mainImage2 {
         crop {
@@ -102,28 +105,6 @@ export const query = graphql`
         alt
       }
       mainImage5 {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
-        }
-        asset {
-          _id
-        }
-        alt
-      }
-      mainImage6 {
         crop {
           _key
           _type
