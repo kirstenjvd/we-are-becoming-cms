@@ -72,6 +72,33 @@ const Flex = styled.div`
     display: flex;
   }
 `
+const ProjectContainer = styled.div`
+  position: relative;
+  margin-bottom: 10px;
+
+  &:hover {
+    div {
+      visibility: visible;
+    }
+  }
+`
+const Caption = styled.div`
+  position: absolute;
+  width: 96%;
+  height: 93%;
+  top: 0;
+  padding: 20px;
+  background: #FF5959;
+  margin: 2%;
+  color: #fff;
+  line-height: 1.32;
+  visibility: hidden;
+  font-size: 20px;
+  ${mq('medium')} {
+    font-size: 30px;
+    padding: 50px 30% 40px 60px;
+  }
+`
 
 const Right = styled.div`
  ${mq('medium')} {
@@ -90,6 +117,7 @@ const Photos = styled.div`
   img {
     display: block;
     margin-bottom: 0;
+    position: relative;
   }
   > div {
     flex-wrap: wrap;
@@ -97,7 +125,6 @@ const Photos = styled.div`
   }
   span {
     display: block;
-    margin-bottom: 10px;
   }
   span:nth-child(1),
   span:nth-child(6) {
@@ -116,7 +143,7 @@ const Photos = styled.div`
 `
 
 function Project (props) {
-  const {_rawBody, title, heading2, categories, mainImage, mainImage2, mainImage3, mainImage4, mainImage5, mainImage6, publishedAt} = props
+  const {_rawBody, title, heading2, categories, mainImage, mainImage2, mainImage3, mainImage4, mainImage5, publishedAt} = props
   return (
 
     <BlogPost className="postStyle">
@@ -144,17 +171,40 @@ function Project (props) {
         <Photos>
           <Flex>
             {props.mainImage && mainImage.asset && (
-              <span className={styles.mainImage}>
-                <img
-                  src={imageUrlFor(buildImageObj(mainImage))
-                    .width(1200)
-                    .height(Math.floor((9 / 16) * 1200))
-                    .fit('crop')
-                    .url()}
-                  alt={mainImage.alt}
-                />
-              </span>
+              <ProjectContainer>
+                <span className={styles.mainImage1}>
+                  <img
+                    src={imageUrlFor(buildImageObj(mainImage))
+                      .width(1200)
+                      .height(Math.floor((9 / 16) * 1200))
+                      .fit('crop')
+                      .url()}
+                    alt={mainImage.alt}
+                  />
+                </span>
+
+               {props.mainImage.rolloverTitle && (
+                  <h2>_Client: {props.mainImage.rolloverTitle}</h2>
+                )}
+                {props.mainImage.rolloverDesc && (
+                  <p>{props.mainImage.rolloverDesc}</p>
+                )}
+                {props.mainImage.rolloverCategories && props.mainImage.rolloverCategories.length > 0 && (
+                  <div>
+                    <h3>Project scope</h3>
+                    <ul>
+                      {props.mainImage.rolloverCategories.map(category => (
+                        <li key={category._id}>{category}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </ProjectContainer>
+
             )}
+
+
+
             {props.mainImage2 && mainImage2.asset && (
               <span className={styles.mainImage2}>
                 <img
@@ -200,18 +250,6 @@ function Project (props) {
                     .fit('crop')
                     .url()}
                   alt={mainImage5.alt}
-                />
-              </span>
-            )}
-            {props.mainImage6 && mainImage5.asset && (
-              <span className={styles.mainImage6}>
-                <img
-                  src={imageUrlFor(buildImageObj(mainImage6))
-                    .width(1200)
-                    .height(Math.floor((9 / 16) * 1200))
-                    .fit('crop')
-                    .url()}
-                  alt={mainImage6.alt}
                 />
               </span>
             )}

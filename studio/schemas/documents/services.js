@@ -47,32 +47,27 @@ export default {
     },
     {
       name: 'mainImage',
-      title: 'Main image',
-      type: 'figure'
+      title: 'Main image w/ Rollover',
+      type: 'rollover'
     },
     {
       name: 'mainImage2',
-      title: 'Main image 2',
+      title: 'Small image 1',
       type: 'figure'
     },
     {
       name: 'mainImage3',
-      title: 'Main image 3',
+      title: 'Small image 2',
       type: 'figure'
     },
     {
       name: 'mainImage4',
-      title: 'Main image 4',
+      title: 'Small image 3',
       type: 'figure'
     },
     {
       name: 'mainImage5',
-      title: 'Main image 5',
-      type: 'figure'
-    },
-    {
-      name: 'mainImage6',
-      title: 'Main image 6',
+      title: 'Small image 4',
       type: 'figure'
     }
   ],
