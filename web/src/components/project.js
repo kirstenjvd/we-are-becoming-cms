@@ -182,7 +182,7 @@ function Project (props) {
                     alt={mainImage.alt}
                   />
                 </span>
-
+{/* 
                {props.mainImage.rolloverTitle && (
                   <h2>_Client: {props.mainImage.rolloverTitle}</h2>
                 )}
@@ -199,6 +199,7 @@ function Project (props) {
                     </ul>
                   </div>
                 )}
+              */}
               </ProjectContainer>
 
             )}
