@@ -33,104 +33,39 @@ export const query = graphql`
         asset {
           _id
         }
-        alt
-        rolloverTitle
-        rolloverDesc
-        rolloverCategories
-      }
-      mainImage2 {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
-        }
-        asset {
-          _id
-        }
-        alt
-      }
-      mainImage3 {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
-        }
-        asset {
-          _id
-        }
-        alt
-      }
-      mainImage4 {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
-        }
-        asset {
-          _id
-        }
-        alt
-      }
-      mainImage5 {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
-        }
-        asset {
-          _id
-        }
-        alt
       }
       title
       slug {
         current
       }
       _rawBody
+      projects {
+        _key
+        _type       
+        rolloverTitle
+        rolloverDesc
+        rolloverCategories
+        mainProjectImage {
+          asset{
+            fixed(width: 900) {
+              ...GatsbySanityImageFixed_noBase64
+            }
+            _id
+          }
+          alt
+        }      
+        smallImages {
+          _key
+          _type
+          asset{
+            fixed(width: 600) {
+              ...GatsbySanityImageFixed_noBase64
+            }
+            _id
+          }
+          alt
+        }
+      }
     }
   }
 `

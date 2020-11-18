@@ -15,7 +15,7 @@ import siteSettings from './documents/siteSettings'
 // Object types
 import bioPortableText from './objects/bioPortableText'
 import figure from './objects/figure'
-import rollover from './objects/rollover'
+import project from './objects/project'
 import imageGallery from './objects/imageGallery'
 import projectMember from './objects/projectMember'
 import projectPortableText from './objects/projectPortableText'
@@ -32,7 +32,7 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     bioPortableText,
     figure,
-    rollover,
+    project,
     imageGallery,
     projectMember,
     projectPortableText,
