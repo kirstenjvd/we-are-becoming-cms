@@ -107,18 +107,47 @@ const RollOver = styled.div`
   visibility: hidden;
   font-size: 20px;
   h2 {
-    font-weight: 600;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-left: -14px;
+    position: relative;
+    &:before {
+      background: #fff;
+      position: absolute;
+      right: 102%;
+      top: 30px;
+      content: '';
+      height: 2px;
+      width: 30px;
+    }
   }
   p,
   h3,
   ul {
     color: #333333;
+    font-size: 20px;
+    font-weight: 300;
   }
   h3 {
-    font-weight: 600;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 3px;
   }
   ul {
-    list-style-type: "+";
+    list-style: none;
+    margin-left:0;
+    li {
+      padding-right: 2px;
+      display: inline-block;
+      &:after {
+        content: ',';
+      }
+      &:last-of-type {
+        &:after {
+          display: none;
+        }
+      }
+    }
   }
   ${mq('medium')} {
     font-size: 30px;
@@ -191,7 +220,7 @@ function Project (props) {
               )}
               <RollOver>
                 {project.rolloverTitle && (
-                  <h2>_Client: {project.rolloverTitle}</h2>
+                  <h2>Client: {project.rolloverTitle}</h2>
                 )}
                 {project.rolloverDesc && (
                   <p>{project.rolloverDesc}</p>
@@ -201,7 +230,7 @@ function Project (props) {
                     <h3>Project scope</h3>
                     <ul>
                       {project.rolloverCategories.map(category => (
-                        <li key={category._id}>{category}</li>
+                        <li key={category._id}>{category} </li>
                       ))}
                     </ul>
                   </div>
