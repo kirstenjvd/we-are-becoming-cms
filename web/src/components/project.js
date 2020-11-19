@@ -109,8 +109,9 @@ const RollOver = styled.div`
   h2 {
     font-weight: 500;
     line-height: 1.1;
-    margin-left: -14px;
     position: relative;
+    font-size: 40px;
+    margin-bottom: 20px;
     &:before {
       background: #fff;
       position: absolute;
