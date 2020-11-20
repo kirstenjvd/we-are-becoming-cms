@@ -80,6 +80,12 @@ const Grid = styled.div`
     grid-column-gap: 10px;
     grid-row-gap: 10px;
   }
+  > div {
+    margin-bottom: 10px;
+    ${mq('medium')} {
+      margin-bottom: 0;
+    }
+  }
 `
 const ProjectContainer = styled.div`
   position: relative;
@@ -95,17 +101,21 @@ const ProjectWrapper = styled.div`
   margin-bottom: 60px;
 `
 const RollOver = styled.div`
-  position: absolute;
-  width: calc(100% - 60px);
-  height: calc(100% - 60px);
-  top: 0;
-  padding: 20px;
   background: #FF5959;
-  margin: 30px;
   color: #fff;
   line-height: 1.32;
-  visibility: hidden;
   font-size: 20px;
+  margin: 20px 0;
+  padding: 25px;
+  ${mq('medium')} {
+    position: absolute;
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    top: 0;
+    visibility: hidden;
+    margin: 30px;
+    padding: 20px;
+  }
   h2 {
     font-weight: 500;
     line-height: 1.1;
@@ -152,7 +162,6 @@ const RollOver = styled.div`
     }
   }
   ${mq('medium')} {
-    font-size: 30px;
     padding: 50px 30% 40px 60px;
   }
 `
