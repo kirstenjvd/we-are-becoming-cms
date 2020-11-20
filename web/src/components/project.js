@@ -96,12 +96,12 @@ const ProjectWrapper = styled.div`
 `
 const RollOver = styled.div`
   position: absolute;
-  width: 96%;
-  height: 93%;
+  width: calc(100% - 60px);
+  height: calc(100% - 60px);
   top: 0;
   padding: 20px;
   background: #FF5959;
-  margin: 2%;
+  margin: 30px;
   color: #fff;
   line-height: 1.32;
   visibility: hidden;
@@ -110,8 +110,9 @@ const RollOver = styled.div`
     font-weight: 500;
     line-height: 1.1;
     position: relative;
-    font-size: 40px;
+    font-size: 36px;
     margin-bottom: 20px;
+    margin-left: 40px;
     &:before {
       background: #fff;
       position: absolute;
@@ -130,7 +131,7 @@ const RollOver = styled.div`
     font-weight: 300;
   }
   h3 {
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.1;
     margin-bottom: 3px;
   }

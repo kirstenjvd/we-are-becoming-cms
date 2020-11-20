@@ -149,7 +149,7 @@ const Caption = styled.a`
   align-items: flex-start;
   padding-bottom: 0;
   padding-top: 122px;
-  padding-left: 70px;
+  padding-left: 120px;
   display: none;
   p {
     font-weight: 500;
@@ -174,11 +174,11 @@ const Caption = styled.a`
   &:hover {
     padding-bottom: 50px;
     opacity: 1;
-    width: 96%;
-    height: 96%;
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
     color: #fff;
     background: #ff5959;
-    margin: 2%;
+    margin: 30px;
     left: 0;
     transform: none;
     text-align: left;
@@ -260,8 +260,8 @@ function Mission (props) {
         mouseDragEnabled={true}
         autoPlay={true}
         dotsDisabled={true}
-        stopAutoPlayOnHover={false}
-        disableAutoPlayOnAction={false}
+        stopAutoPlayOnHover={true}
+        disableAutoPlayOnAction={true}
         autoPlayInterval={5000}>
         {props.slides.map(slide => (
           <div role="presentation" onDragStart={handleOnDragStart} key={slide._key}>
