@@ -47,28 +47,14 @@ export default {
     },
     {
       name: 'mainImage',
-      title: 'Main image w/ Rollover',
-      type: 'rollover'
+      title: 'Featured Image',
+      description: 'Service listing hover background',
+      type: 'image'
     },
     {
-      name: 'mainImage2',
-      title: 'Small image 1',
-      type: 'figure'
-    },
-    {
-      name: 'mainImage3',
-      title: 'Small image 2',
-      type: 'figure'
-    },
-    {
-      name: 'mainImage4',
-      title: 'Small image 3',
-      type: 'figure'
-    },
-    {
-      name: 'mainImage5',
-      title: 'Small image 4',
-      type: 'figure'
+      type: 'array',
+      name: 'projects',
+      of: [{type: 'project'}]
     }
   ],
   preview: {
@@ -76,15 +62,12 @@ export default {
       title: 'title',
       publishedAt: 'publishedAt',
       slug: 'slug',
-      media: 'mainImage'
     },
-    prepare({title = 'No title', publishedAt, slug = {}, media}) {
+    prepare({title = 'No title', publishedAt, slug = {} }) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
+      const path = `/${slug.current}/`
       return {
-        title,
-        media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
+        title
       }
     }
   }

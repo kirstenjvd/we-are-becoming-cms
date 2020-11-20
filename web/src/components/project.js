@@ -72,30 +72,96 @@ const Flex = styled.div`
     display: flex;
   }
 `
+const Grid = styled.div`
+  ${mq('medium')} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: auto auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+  > div {
+    margin-bottom: 10px;
+    ${mq('medium')} {
+      margin-bottom: 0;
+    }
+  }
+`
 const ProjectContainer = styled.div`
   position: relative;
   margin-bottom: 10px;
 
   &:hover {
-    div {
+    > div {
       visibility: visible;
     }
   }
 `
-const Caption = styled.div`
-  position: absolute;
-  width: 96%;
-  height: 93%;
-  top: 0;
-  padding: 20px;
+const ProjectWrapper = styled.div`
+  margin-bottom: 60px;
+`
+const RollOver = styled.div`
   background: #FF5959;
-  margin: 2%;
   color: #fff;
   line-height: 1.32;
-  visibility: hidden;
   font-size: 20px;
+  margin: 20px 0;
+  padding: 25px;
   ${mq('medium')} {
-    font-size: 30px;
+    position: absolute;
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    top: 0;
+    visibility: hidden;
+    margin: 30px;
+    padding: 20px;
+  }
+  h2 {
+    font-weight: 500;
+    line-height: 1.1;
+    position: relative;
+    font-size: 36px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    &:before {
+      background: #fff;
+      position: absolute;
+      right: 102%;
+      top: 30px;
+      content: '';
+      height: 2px;
+      width: 30px;
+    }
+  }
+  p,
+  h3,
+  ul {
+    color: #333333;
+    font-size: 20px;
+    font-weight: 300;
+  }
+  h3 {
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 3px;
+  }
+  ul {
+    list-style: none;
+    margin-left:0;
+    li {
+      padding-right: 2px;
+      display: inline-block;
+      &:after {
+        content: ',';
+      }
+      &:last-of-type {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+  ${mq('medium')} {
     padding: 50px 30% 40px 60px;
   }
 `
@@ -119,31 +185,10 @@ const Photos = styled.div`
     margin-bottom: 0;
     position: relative;
   }
-  > div {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  span {
-    display: block;
-  }
-  span:nth-child(1),
-  span:nth-child(6) {
-    width: 100%;
-  }
-  span:nth-child(2),
-  span:nth-child(3),
-  span:nth-child(4),
-  span:nth-child(5) {
-    width: 100%;
-    ${mq('tablet')} {
-      width: 49.5%;
-
-    }
-  }
 `
 
 function Project (props) {
-  const {_rawBody, title, heading2, categories, mainImage, mainImage2, mainImage3, mainImage4, mainImage5, publishedAt} = props
+  const {_rawBody, title, heading2, categories, mainImage, projects, publishedAt} = props
   return (
 
     <BlogPost className="postStyle">
@@ -169,92 +214,60 @@ function Project (props) {
           </Right>
         </Flex>
         <Photos>
-          <Flex>
-            {props.mainImage && mainImage.asset && (
-              <ProjectContainer>
-                <span className={styles.mainImage1}>
-                  <img
-                    src={imageUrlFor(buildImageObj(mainImage))
-                      .width(1200)
-                      .height(Math.floor((9 / 16) * 1200))
-                      .fit('crop')
-                      .url()}
-                    alt={mainImage.alt}
-                  />
-                </span>
-{/* 
-               {props.mainImage.rolloverTitle && (
-                  <h2>_Client: {props.mainImage.rolloverTitle}</h2>
+        {projects.map( project => (
+          <ProjectWrapper key={project._key}>
+            <ProjectContainer>
+              {project.mainProjectImage && project.mainProjectImage.asset && (
+              <span className={styles.mainImage}>
+                <img
+                  src={imageUrlFor(buildImageObj(project.mainProjectImage))
+                    .width(1200)
+                    .height(720)
+                    .fit('crop')
+                    .url()}
+                  alt={project.mainProjectImage.alt}
+                />
+              </span>
+              )}
+              <RollOver>
+                {project.rolloverTitle && (
+                  <h2>Client: {project.rolloverTitle}</h2>
                 )}
-                {props.mainImage.rolloverDesc && (
-                  <p>{props.mainImage.rolloverDesc}</p>
+                {project.rolloverDesc && (
+                  <p>{project.rolloverDesc}</p>
                 )}
-                {props.mainImage.rolloverCategories && props.mainImage.rolloverCategories.length > 0 && (
+                {project.rolloverCategories && project.rolloverCategories.length > 0 && (
                   <div>
                     <h3>Project scope</h3>
                     <ul>
-                      {props.mainImage.rolloverCategories.map(category => (
-                        <li key={category._id}>{category}</li>
+                      {project.rolloverCategories.map(category => (
+                        <li key={category._id}>{category} </li>
                       ))}
                     </ul>
                   </div>
                 )}
-              */}
-              </ProjectContainer>
-
-            )}
-
-
-
-            {props.mainImage2 && mainImage2.asset && (
-              <span className={styles.mainImage2}>
-                <img
-                  src={imageUrlFor(buildImageObj(mainImage2))
-                    .width(1200)
-                    .height(Math.floor((9 / 16) * 1200))
-                    .fit('crop')
-                    .url()}
-                  alt={mainImage2.alt}
-                />
-              </span>
-            )}
-            {props.mainImage3 && mainImage3.asset && (
-              <span className={styles.mainImage3}>
-                <img
-                  src={imageUrlFor(buildImageObj(mainImage3))
-                    .width(1200)
-                    .height(Math.floor((9 / 16) * 1200))
-                    .fit('crop')
-                    .url()}
-                  alt={mainImage3.alt}
-                />
-              </span>
-            )}
-            {props.mainImage4 && mainImage4.asset && (
-              <span className={styles.mainImage4}>
-                <img
-                  src={imageUrlFor(buildImageObj(mainImage4))
-                    .width(1200)
-                    .height(Math.floor((9 / 16) * 1200))
-                    .fit('crop')
-                    .url()}
-                  alt={mainImage4.alt}
-                />
-              </span>
-            )}
-            {props.mainImage5 && mainImage5.asset && (
-              <span className={styles.mainImage5}>
-                <img
-                  src={imageUrlFor(buildImageObj(mainImage5))
-                    .width(1200)
-                    .height(Math.floor((9 / 16) * 1200))
-                    .fit('crop')
-                    .url()}
-                  alt={mainImage5.alt}
-                />
-              </span>
-            )}
-          </Flex>
+              </RollOver>  
+            </ProjectContainer>
+            <Grid>
+            {project.smallImages.map( image => (
+              <div key={image._key}>
+                {image && image.asset && (
+                <span className={styles.mainImage}>
+                  <img
+                    src={imageUrlFor(buildImageObj(image))
+                      .width(868)
+                      .height(599)
+                      .fit('crop')
+                      .url()}
+                    alt={image.alt}
+                  />
+                </span>
+                )}
+              </div>
+            ))}
+            </Grid>
+          </ProjectWrapper>   
+        ))}
         </Photos>
       </div>
     </BlogPost>

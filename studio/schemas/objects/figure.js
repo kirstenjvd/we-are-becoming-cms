@@ -7,14 +7,6 @@ export default {
   },
   fields: [
     {
-      title: 'Caption',
-      name: 'caption',
-      type: 'string',
-      options: {
-        isHighlighted: true
-      }
-    },
-    {
       name: 'alt',
       type: 'string',
       title: 'Alternative text',

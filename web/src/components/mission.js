@@ -148,22 +148,40 @@ const Caption = styled.a`
   justify-content: flex-start;
   align-items: flex-start;
   padding-bottom: 0;
-  padding-top: 90px;
-  padding-left: 70px;
+  padding-top: 122px;
+  padding-left: 120px;
   display: none;
-  span {
+  p {
     font-weight: 500;
-    font-size: 70px;
+    font-size: 40px;
     text-align: left;
-    max-width: 500px;
+    max-width: 400px;
     line-height: 1;
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.1;
+    &:before {
+      background: #fff;
+      position: absolute;
+      right: 102%;
+      top: 30px;
+      content: '';
+      height: 2px;
+      width: 30px;
+    }
   }
   &:hover {
     padding-bottom: 50px;
     opacity: 1;
-    width: 100%;
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
     color: #fff;
-    background: rgba(255,89,89,0.8);
+    background: #ff5959;
+    margin: 30px;
+    left: 0;
+    transform: none;
+    text-align: left;
   }
   ${mq('tablet')} {
     display: block;
@@ -242,8 +260,8 @@ function Mission (props) {
         mouseDragEnabled={true}
         autoPlay={true}
         dotsDisabled={true}
-        stopAutoPlayOnHover={false}
-        disableAutoPlayOnAction={false}
+        stopAutoPlayOnHover={true}
+        disableAutoPlayOnAction={true}
         autoPlayInterval={5000}>
         {props.slides.map(slide => (
           <div role="presentation" onDragStart={handleOnDragStart} key={slide._key}>
@@ -255,7 +273,7 @@ function Mission (props) {
               />
             )}
             {slide.serviceUrl && slide.caption && (
-              <Caption href={slide.serviceUrl}><span>{slide.caption}</span></Caption>
+              <Caption href={slide.serviceUrl}><p>{slide.caption}</p></Caption>
             )}
           </div>
         ))}
