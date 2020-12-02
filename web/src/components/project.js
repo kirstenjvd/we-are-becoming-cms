@@ -229,24 +229,25 @@ function Project (props) {
                 />
               </span>
               )}
-              <RollOver>
-                {project.rolloverTitle && (
-                  <h2>Client: {project.rolloverTitle}</h2>
-                )}
-                {project.rolloverDesc && (
-                  <p>{project.rolloverDesc}</p>
-                )}
-                {project.rolloverCategories && project.rolloverCategories.length > 0 && (
-                  <div>
-                    <h3>Project scope</h3>
-                    <ul>
-                      {project.rolloverCategories.map(category => (
-                        <li key={category._id}>{category} </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </RollOver>  
+              {project.rolloverTitle &&(
+                <RollOver>
+                  {project.rolloverTitle && (
+                    <h2>Client: {project.rolloverTitle}</h2>
+                  )}
+                  {project.rolloverDesc && (
+                    <p>{project.rolloverDesc}</p>
+                  )}
+                  {project.rolloverCategories && project.rolloverCategories.length > 0 && (
+                    <div>
+                      <h3>Project scope</h3>
+                      <ul>
+                        {project.rolloverCategories.map(category => (
+                          <li key={category._id}>{category} </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </RollOver> )}  
             </ProjectContainer>
             <Grid>
             {project.smallImages.map( image => (
